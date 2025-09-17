@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yanesa Medina - Creative Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+        
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .neon-glow {
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.5), 0 0 40px rgba(0, 255, 255, 0.3);
+        }
+        
+        .cyber-grid {
+            background-image: 
+                linear-gradient(rgba(0, 255, 255, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+        
+        .hologram {
+            background: linear-gradient(45deg, 
+                rgba(0, 255, 255, 0.1) 0%,
+                rgba(255, 0, 255, 0.1) 25%,
+                rgba(255, 255, 0, 0.1) 50%,
+                rgba(0, 255, 255, 0.1) 75%,
+                rgba(255, 0, 255, 0.1) 100%);
+            background-size: 400% 400%;
+            animation: hologram-shift 4s ease-in-out infinite;
+        }
+        
+        @keyframes hologram-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .glitch {
+            position: relative;
+            animation: glitch 2s infinite;
+        }
+        
+        @keyframes glitch {
+            0%, 90%, 100% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+        }
+        
+        .slide-in-left {
+            transform: translateX(-100px);
+            opacity: 0;
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .slide-in-right {
+            transform: translateX(100px);
+            opacity: 0;
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .slide-in-up {
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .animate-in {
+            transform: translate(0);
+            opacity: 1;
+        }
+        
+        .hexagon {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #00ffff, #ff00ff);
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            animation: rotate 10s linear infinite;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .pulse-ring {
+            animation: pulse-ring 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+        }
+        
+        @keyframes pulse-ring {
+            0% { transform: scale(0.8); opacity: 1; }
+            80%, 100% { transform: scale(1.2); opacity: 0; }
+        }
+        
+        .floating-card {
+            transform: translateY(0px);
+            animation: float-card 6s ease-in-out infinite;
+        }
+        
+        @keyframes float-card {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .tech-border {
+            position: relative;
+            border: 2px solid transparent;
+            background: linear-gradient(45deg, #000, #111) padding-box,
+                        linear-gradient(45deg, #00ffff, #ff00ff, #ffff00) border-box;
+        }
+        
+        .matrix-rain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .matrix-char {
+            position: absolute;
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            animation: matrix-fall linear infinite;
+        }
+        
+        @keyframes matrix-fall {
+            0% { transform: translateY(-100vh); opacity: 1; }
+            100% { transform: translateY(100vh); opacity: 0; }
+        }
+        
+        .cyber-button {
+            position: relative;
+            background: linear-gradient(45deg, #00ffff, #0080ff);
+            border: none;
+            color: #000;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .cyber-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.5s;
+        }
+        
+        .cyber-button:hover::before {
+            left: 100%;
+        }
+        
+        .cyber-button:hover {
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.8);
+            transform: translateY(-2px);
+        }
+        
+        .skill-orb {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, rgba(0, 255, 255, 0.8), rgba(0, 128, 255, 0.4));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            animation: orbit 8s linear infinite;
+        }
+        
+        @keyframes orbit {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .project-hologram {
+            background: rgba(0, 0, 0, 0.8);
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-hologram::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, 
+                transparent 30%, 
+                rgba(0, 255, 255, 0.1) 50%, 
+                transparent 70%);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+        
+        .project-hologram:hover::before {
+            transform: translateX(100%);
+        }
+        
+        .timeline-node {
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(45deg, #00ffff, #ff00ff);
+            border-radius: 50%;
+            position: relative;
+        }
+        
+        .timeline-node::before {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border: 2px solid rgba(0, 255, 255, 0.3);
+            border-radius: 50%;
+            top: -10px;
+            left: -10px;
+            animation: pulse-ring 2s infinite;
+        }
+        
+        .cyber-text {
+            background: linear-gradient(45deg, #00ffff, #ff00ff, #ffff00);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradient-shift 3s ease infinite;
+        }
+        
+        @keyframes gradient-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+    </style>
+</head>
+<body class="bg-black text-white overflow-x-hidden">
+    <!-- Matrix Rain Background -->
+    <div class="matrix-rain" id="matrix-rain"></div>
+    
+    <!-- Cyber Grid Background -->
+    <div class="fixed inset-0 cyber-grid opacity-20 pointer-events-none z-0"></div>
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-black bg-opacity-80 backdrop-blur-md border-b border-cyan-500">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold cyber-text glitch">
+                    &lt;YANESA.DEV/&gt;
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link text-cyan-400 hover:text-white transition-colors relative">
+                        <span class="text-cyan-600">[</span>HOME<span class="text-cyan-600">]</span>
+                    </a>
+                    <a href="#about" class="nav-link text-cyan-400 hover:text-white transition-colors">
+                        <span class="text-cyan-600">[</span>ABOUT<span class="text-cyan-600">]</span>
+                    </a>
+                    <a href="#skills" class="nav-link text-cyan-400 hover:text-white transition-colors">
+                        <span class="text-cyan-600">[</span>SKILLS<span class="text-cyan-600">]</span>
+                    </a>
+                    <a href="#projects" class="nav-link text-cyan-400 hover:text-white transition-colors">
+                        <span class="text-cyan-600">[</span>PROJECTS<span class="text-cyan-600">]</span>
+                    </a>
+                    <a href="#experience" class="nav-link text-cyan-400 hover:text-white transition-colors">
+                        <span class="text-cyan-600">[</span>EXPERIENCE<span class="text-cyan-600">]</span>
+                    </a>
+                    <a href="#contact" class="nav-link text-cyan-400 hover:text-white transition-colors">
+                        <span class="text-cyan-600">[</span>CONTACT<span class="text-cyan-600">]</span>
+                    </a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-cyan-400 text-xl">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-black bg-opacity-95 z-40 hidden">
+        <div class="flex flex-col items-center justify-center h-full space-y-8">
+            <a href="#home" class="text-2xl text-cyan-400 hover:text-white mobile-nav-link">
+                <span class="text-cyan-600">[</span>HOME<span class="text-cyan-600">]</span>
+            </a>
+            <a href="#about" class="text-2xl text-cyan-400 hover:text-white mobile-nav-link">
+                <span class="text-cyan-600">[</span>ABOUT<span class="text-cyan-600">]</span>
+            </a>
+            <a href="#skills" class="text-2xl text-cyan-400 hover:text-white mobile-nav-link">
+                <span class="text-cyan-600">[</span>SKILLS<span class="text-cyan-600">]</span>
+            </a>
+            <a href="#projects" class="text-2xl text-cyan-400 hover:text-white mobile-nav-link">
+                <span class="text-cyan-600">[</span>PROJECTS<span class="text-cyan-600">]</span>
+            </a>
+            <a href="#experience" class="text-2xl text-cyan-400 hover:text-white mobile-nav-link">
+                <span class="text-cyan-600">[</span>EXPERIENCE<span class="text-cyan-600">]</span>
+            </a>
+            <a href="#contact" class="text-2xl text-cyan-400 hover:text-white mobile-nav-link">
+                <span class="text-cyan-600">[</span>CONTACT<span class="text-cyan-600">]</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center relative">
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <div class="slide-in-up mb-8">
+                <div class="hexagon mx-auto mb-8"></div>
+            </div>
+            <h1 class="text-6xl md:text-8xl font-bold mb-6 slide-in-left">
+                <span class="cyber-text">YANESA</span>
+            </h1>
+            <h2 class="text-3xl md:text-5xl font-bold mb-6 slide-in-right">
+                <span class="text-cyan-400">MEDINA</span>
+            </h2>
+            <div class="text-xl md:text-2xl mb-8 slide-in-up">
+                <span class="text-gray-400">&gt; </span>
+                <span id="terminal-text" class="text-green-400 font-mono"></span>
+                <span class="animate-pulse">|</span>
+            </div>
+            <p class="text-lg text-gray-300 mb-12 max-w-3xl mx-auto slide-in-up">
+                Crafting digital experiences through code, innovation, and cyberpunk aesthetics. 
+                Welcome to my digital realm where creativity meets technology.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-6 justify-center slide-in-up">
+                <button onclick="scrollToSection('projects')" class="cyber-button px-8 py-4 rounded-lg">
+                    <i class="fas fa-rocket mr-2"></i>EXPLORE PROJECTS
+                </button>
+                <button onclick="scrollToSection('contact')" class="px-8 py-4 border-2 border-cyan-400 text-cyan-400 rounded-lg hover:bg-cyan-400 hover:text-black transition-all duration-300 neon-glow">
+                    <i class="fas fa-terminal mr-2"></i>INITIALIZE CONTACT
+                </button>
+            </div>
+        </div>
+        
+        <!-- Floating Elements -->
+        <div class="absolute top-20 left-10 w-4 h-4 bg-cyan-400 rounded-full pulse-ring"></div>
+        <div class="absolute top-40 right-20 w-6 h-6 bg-purple-500 rounded-full pulse-ring" style="animation-delay: 1s;"></div>
+        <div class="absolute bottom-40 left-20 w-3 h-3 bg-yellow-400 rounded-full pulse-ring" style="animation-delay: 2s;"></div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 relative">
+        <div class="container mx-auto px-6">
+            <h2 class="text-5xl font-bold text-center mb-16 slide-in-up">
+                <span class="cyber-text">&lt;ABOUT_ME/&gt;</span>
+            </h2>
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="slide-in-left">
+                    <div class="tech-border p-8 rounded-2xl hologram">
+                        <div class="text-center">
+                            <div class="w-64 h-64 mx-auto mb-8 rounded-full bg-gradient-to-br from-cyan-400 via-purple-500 to-pink-500 p-1 relative group">
+                                <div id="profile-container" class="w-full h-full rounded-full bg-black flex items-center justify-center overflow-hidden relative cursor-pointer" onclick="document.getElementById('profile-upload').click()">
+                                    <img id="profile-image" class="w-full h-full object-cover rounded-full hidden" alt="Profile Photo">
+                                    <div id="profile-placeholder" class="flex flex-col items-center justify-center text-cyan-400">
+                                        <i class="fas fa-user-astronaut text-6xl mb-2"></i>
+                                        <div class="text-xs font-mono opacity-0 group-hover:opacity-100 transition-opacity">
+                                            UPLOAD_PHOTO
+                                        </div>
+                                    </div>
+                                    <div id="upload-overlay" class="absolute inset-0 bg-black bg-opacity-80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity rounded-full">
+                                        <div class="text-center">
+                                            <i class="fas fa-camera text-2xl text-cyan-400 mb-2"></i>
+                                            <div class="text-xs font-mono text-cyan-400">CHANGE_PHOTO</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <input type="file" id="profile-upload" accept="image/*" class="hidden">
+                            </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="bg-gray-900 p-4 rounded-lg border border-cyan-500">
+                                    <div class="text-2xl font-bold text-cyan-400">100+</div>
+                                    <div class="text-gray-400">COMMITS</div>
+                                </div>
+                                <div class="bg-gray-900 p-4 rounded-lg border border-purple-500">
+                                    <div class="text-2xl font-bold text-purple-400">50+</div>
+                                    <div class="text-gray-400">PROJECTS</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-in-right">
+                    <div class="space-y-6">
+                        <h3 class="text-3xl font-bold text-cyan-400 mb-6">
+                            <span class="text-gray-500">//</span> SYSTEM.INITIALIZE()
+                        </h3>
+                        <div class="space-y-4 text-gray-300 leading-relaxed">
+                            <p class="border-l-4 border-cyan-400 pl-4">
+                                <span class="text-cyan-400 font-mono">console.log(</span>"Hello World! I'm Yanesa Medina, a passionate software developer 
+                                who thrives in the intersection of creativity and technology."<span class="text-cyan-400 font-mono">);</span>
+                            </p>
+                            <p class="border-l-4 border-purple-400 pl-4">
+                                <span class="text-purple-400 font-mono">function</span> <span class="text-yellow-400">myMission</span>() {
+                                <br>&nbsp;&nbsp;return "Building innovative digital solutions that push the boundaries of what's possible 
+                                in web development and software engineering.";
+                                <br>}
+                            </p>
+                            <p class="border-l-4 border-green-400 pl-4">
+                                <span class="text-green-400 font-mono">const</span> <span class="text-yellow-400">expertise</span> = [
+                                "Full-Stack Development", "UI/UX Design", "System Architecture", "Problem Solving"
+                                ];
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-3 mt-8">
+                            <span class="px-4 py-2 bg-cyan-900 text-cyan-300 rounded-full text-sm border border-cyan-500">CREATIVE</span>
+                            <span class="px-4 py-2 bg-purple-900 text-purple-300 rounded-full text-sm border border-purple-500">INNOVATIVE</span>
+                            <span class="px-4 py-2 bg-green-900 text-green-300 rounded-full text-sm border border-green-500">EFFICIENT</span>
+                            <span class="px-4 py-2 bg-yellow-900 text-yellow-300 rounded-full text-sm border border-yellow-500">DEDICATED</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 relative">
+        <div class="container mx-auto px-6">
+            <h2 class="text-5xl font-bold text-center mb-16 slide-in-up">
+                <span class="cyber-text">&lt;SKILL_MATRIX/&gt;</span>
+            </h2>
+            <div class="grid lg:grid-cols-3 gap-12">
+                <!-- Frontend Skills -->
+                <div class="slide-in-left floating-card">
+                    <div class="tech-border p-8 rounded-2xl bg-gray-900 bg-opacity-50">
+                        <div class="text-center mb-8">
+                            <div class="skill-orb mx-auto mb-4">
+                                <i class="fas fa-code text-2xl text-black"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-cyan-400">FRONTEND</h3>
+                            <p class="text-gray-400">User Interface Mastery</p>
+                        </div>
+                        <div class="space-y-6">
+                            <div class="skill-item">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-white font-mono">React.js</span>
+                                    <span class="text-cyan-400">95%</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-gradient-to-r from-cyan-400 to-blue-500 h-2 rounded-full skill-progress" data-width="95"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-white font-mono">TypeScript</span>
+                                    <span class="text-cyan-400">90%</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-gradient-to-r from-cyan-400 to-blue-500 h-2 rounded-full skill-progress" data-width="90"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-white font-mono">CSS/Tailwind</span>
+                                    <span class="text-cyan-400">88%</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-gradient-to-r from-cyan-400 to-blue-500 h-2 rounded-full skill-progress" data-width="88"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Backend Skills -->
+                <div class="slide-in-up floating-card" style="animation-delay: 0.2s;">
+                    <div class="tech-border p-8 rounded-2xl bg-gray-900 bg-opacity-50">
+                        <div class="text-center mb-8">
+                            <div class="skill-orb mx-auto mb-4" style="background: radial-gradient(circle at 30% 30%, rgba(255, 0, 255, 0.8), rgba(128, 0, 255, 0.4));">
+                                <i class="fas fa-server text-2xl text-black"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-purple-400">BACKEND</h3>
+                            <p class="text-gray-400">Server Architecture</p>
+                        </div>
+                        <div class="space-y-6">
+                            <div class="skill-item">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-white font-mono">Node.js</span>
+                                    <span class="text-purple-400">85%</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-gradient-to-r from-purple-400 to-pink-500 h-2 rounded-full skill-progress" data-width="85"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-white font-mono">Python</span>
+                                    <span class="text-purple-400">80%</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-gradient-to-r from-purple-400 to-pink-500 h-2 rounded-full skill-progress" data-width="80"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-white font-mono">Databases</span>
+                                    <span class="text-purple-400">82%</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-gradient-to-r from-purple-400 to-pink-500 h-2 rounded-full skill-progress" data-width="82"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DevOps Skills -->
+                <div class="slide-in-right floating-card" style="animation-delay: 0.4s;">
+                    <div class="tech-border p-8 rounded-2xl bg-gray-900 bg-opacity-50">
+                        <div class="text-center mb-8">
+                            <div class="skill-orb mx-auto mb-4" style="background: radial-gradient(circle at 30% 30%, rgba(255, 255, 0, 0.8), rgba(255, 128, 0, 0.4));">
+                                <i class="fas fa-cogs text-2xl text-black"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-yellow-400">DEVOPS</h3>
+                            <p class="text-gray-400">System Operations</p>
+                        </div>
+                        <div class="space-y-6">
+                            <div class="skill-item">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-white font-mono">Docker</span>
+                                    <span class="text-yellow-400">75%</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-gradient-to-r from-yellow-400 to-orange-500 h-2 rounded-full skill-progress" data-width="75"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-white font-mono">AWS/Cloud</span>
+                                    <span class="text-yellow-400">70%</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-gradient-to-r from-yellow-400 to-orange-500 h-2 rounded-full skill-progress" data-width="70"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-white font-mono">CI/CD</span>
+                                    <span class="text-yellow-400">78%</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-gradient-to-r from-yellow-400 to-orange-500 h-2 rounded-full skill-progress" data-width="78"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 relative">
+        <div class="container mx-auto px-6">
+            <h2 class="text-5xl font-bold text-center mb-16 slide-in-up">
+                <span class="cyber-text">&lt;PROJECT_ARCHIVE/&gt;</span>
+            </h2>
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-hologram rounded-2xl overflow-hidden slide-in-left">
+                    <div class="h-48 bg-gradient-to-br from-cyan-500 via-blue-500 to-purple-600 flex items-center justify-center relative">
+                        <i class="fas fa-shopping-cart text-4xl text-white z-10"></i>
+                        <div class="absolute inset-0 bg-black bg-opacity-30"></div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-xl font-bold text-cyan-400 font-mono">CYBER_COMMERCE</h3>
+                            <div class="flex space-x-2">
+                                <div class="w-3 h-3 bg-green-400 rounded-full"></div>
+                                <div class="w-3 h-3 bg-yellow-400 rounded-full"></div>
+                                <div class="w-3 h-3 bg-red-400 rounded-full"></div>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 mb-4 text-sm">
+                            Next-gen e-commerce platform with AI-powered recommendations and blockchain integration.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-2 py-1 bg-cyan-900 text-cyan-300 text-xs rounded border border-cyan-500">REACT</span>
+                            <span class="px-2 py-1 bg-blue-900 text-blue-300 text-xs rounded border border-blue-500">NODE.JS</span>
+                            <span class="px-2 py-1 bg-green-900 text-green-300 text-xs rounded border border-green-500">MONGODB</span>
+                        </div>
+                        <div class="flex space-x-3">
+                            <button class="flex-1 cyber-button py-2 px-4 rounded text-sm">
+                                <i class="fas fa-external-link-alt mr-1"></i>DEPLOY
+                            </button>
+                            <button class="flex-1 py-2 px-4 border border-cyan-400 text-cyan-400 rounded text-sm hover:bg-cyan-400 hover:text-black transition-all">
+                                <i class="fab fa-github mr-1"></i>SOURCE
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-hologram rounded-2xl overflow-hidden slide-in-up">
+                    <div class="h-48 bg-gradient-to-br from-purple-500 via-pink-500 to-red-600 flex items-center justify-center relative">
+                        <i class="fas fa-chart-network text-4xl text-white z-10"></i>
+                        <div class="absolute inset-0 bg-black bg-opacity-30"></div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-xl font-bold text-purple-400 font-mono">NEURAL_DASH</h3>
+                            <div class="flex space-x-2">
+                                <div class="w-3 h-3 bg-green-400 rounded-full"></div>
+                                <div class="w-3 h-3 bg-yellow-400 rounded-full"></div>
+                                <div class="w-3 h-3 bg-red-400 rounded-full"></div>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 mb-4 text-sm">
+                            AI-powered analytics dashboard with real-time data visualization and predictive modeling.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-2 py-1 bg-purple-900 text-purple-300 text-xs rounded border border-purple-500">VUE.JS</span>
+                            <span class="px-2 py-1 bg-pink-900 text-pink-300 text-xs rounded border border-pink-500">D3.JS</span>
+                            <span class="px-2 py-1 bg-red-900 text-red-300 text-xs rounded border border-red-500">PYTHON</span>
+                        </div>
+                        <div class="flex space-x-3">
+                            <button class="flex-1 cyber-button py-2 px-4 rounded text-sm">
+                                <i class="fas fa-external-link-alt mr-1"></i>DEPLOY
+                            </button>
+                            <button class="flex-1 py-2 px-4 border border-purple-400 text-purple-400 rounded text-sm hover:bg-purple-400 hover:text-black transition-all">
+                                <i class="fab fa-github mr-1"></i>SOURCE
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-hologram rounded-2xl overflow-hidden slide-in-right">
+                    <div class="h-48 bg-gradient-to-br from-green-500 via-teal-500 to-blue-600 flex items-center justify-center relative">
+                        <i class="fas fa-mobile-alt text-4xl text-white z-10"></i>
+                        <div class="absolute inset-0 bg-black bg-opacity-30"></div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-xl font-bold text-green-400 font-mono">QUANTUM_TASK</h3>
+                            <div class="flex space-x-2">
+                                <div class="w-3 h-3 bg-green-400 rounded-full"></div>
+                                <div class="w-3 h-3 bg-yellow-400 rounded-full"></div>
+                                <div class="w-3 h-3 bg-red-400 rounded-full"></div>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 mb-4 text-sm">
+                            Quantum-inspired task management app with advanced collaboration features and AR integration.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-2 py-1 bg-green-900 text-green-300 text-xs rounded border border-green-500">REACT NATIVE</span>
+                            <span class="px-2 py-1 bg-teal-900 text-teal-300 text-xs rounded border border-teal-500">REDUX</span>
+                            <span class="px-2 py-1 bg-blue-900 text-blue-300 text-xs rounded border border-blue-500">FIREBASE</span>
+                        </div>
+                        <div class="flex space-x-3">
+                            <button class="flex-1 cyber-button py-2 px-4 rounded text-sm">
+                                <i class="fas fa-external-link-alt mr-1"></i>DEPLOY
+                            </button>
+                            <button class="flex-1 py-2 px-4 border border-green-400 text-green-400 rounded text-sm hover:bg-green-400 hover:text-black transition-all">
+                                <i class="fab fa-github mr-1"></i>SOURCE
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-12 slide-in-up">
+                <button class="cyber-button px-8 py-4 rounded-lg">
+                    <i class="fas fa-folder-open mr-2"></i>ACCESS_ALL_PROJECTS
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 relative">
+        <div class="container mx-auto px-6">
+            <h2 class="text-5xl font-bold text-center mb-16 slide-in-up">
+                <span class="cyber-text">&lt;EXPERIENCE_LOG/&gt;</span>
+            </h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="relative">
+                    <!-- Timeline Line -->
+                    <div class="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-cyan-400 via-purple-500 to-green-400"></div>
+                    
+                    <!-- Experience 1 -->
+                    <div class="relative flex items-center mb-16 slide-in-left">
+                        <div class="w-1/2 pr-8 text-right">
+                            <div class="tech-border p-6 rounded-2xl bg-gray-900 bg-opacity-80">
+                                <div class="text-sm text-cyan-400 font-mono mb-2">[2022 - PRESENT]</div>
+                                <h3 class="text-xl font-bold text-white mb-2">SENIOR_FULL_STACK_DEV</h3>
+                                <p class="text-cyan-400 mb-3 font-mono">TechCorp_Solutions.exe</p>
+                                <p class="text-gray-300 text-sm">
+                                    Leading development of scalable web applications, implementing microservices architecture, 
+                                    and mentoring junior developers in modern development practices.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="absolute left-1/2 transform -translate-x-1/2">
+                            <div class="timeline-node"></div>
+                        </div>
+                        <div class="w-1/2 pl-8"></div>
+                    </div>
+
+                    <!-- Experience 2 -->
+                    <div class="relative flex items-center mb-16 slide-in-right">
+                        <div class="w-1/2 pr-8"></div>
+                        <div class="absolute left-1/2 transform -translate-x-1/2">
+                            <div class="timeline-node" style="background: linear-gradient(45deg, #ff00ff, #8000ff);"></div>
+                        </div>
+                        <div class="w-1/2 pl-8">
+                            <div class="tech-border p-6 rounded-2xl bg-gray-900 bg-opacity-80">
+                                <div class="text-sm text-purple-400 font-mono mb-2">[2021 - 2022]</div>
+                                <h3 class="text-xl font-bold text-white mb-2">FRONTEND_SPECIALIST</h3>
+                                <p class="text-purple-400 mb-3 font-mono">Digital_Innovations.io</p>
+                                <p class="text-gray-300 text-sm">
+                                    Developed responsive web applications using React and modern JavaScript frameworks, 
+                                    collaborated with design teams to implement pixel-perfect UI components.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Experience 3 -->
+                    <div class="relative flex items-center slide-in-left">
+                        <div class="w-1/2 pr-8 text-right">
+                            <div class="tech-border p-6 rounded-2xl bg-gray-900 bg-opacity-80">
+                                <div class="text-sm text-green-400 font-mono mb-2">[2020 - 2021]</div>
+                                <h3 class="text-xl font-bold text-white mb-2">JUNIOR_SOFTWARE_DEV</h3>
+                                <p class="text-green-400 mb-3 font-mono">StartUp_Hub.dev</p>
+                                <p class="text-gray-300 text-sm">
+                                    Built and maintained web applications, participated in agile development processes, 
+                                    and contributed to open-source projects while learning industry best practices.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="absolute left-1/2 transform -translate-x-1/2">
+                            <div class="timeline-node" style="background: linear-gradient(45deg, #00ff00, #00ff80);"></div>
+                        </div>
+                        <div class="w-1/2 pl-8"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 relative">
+        <div class="container mx-auto px-6">
+            <h2 class="text-5xl font-bold text-center mb-16 slide-in-up">
+                <span class="cyber-text">&lt;ESTABLISH_CONNECTION/&gt;</span>
+            </h2>
+            <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16">
+                <div class="slide-in-left">
+                    <div class="space-y-8">
+                        <h3 class="text-3xl font-bold text-cyan-400 mb-6 font-mono">
+                            <span class="text-gray-500">//</span> INITIATE_PROTOCOL
+                        </h3>
+                        <p class="text-gray-300 leading-relaxed">
+                            Ready to collaborate on your next digital venture? Let's connect and build something extraordinary together. 
+                            I'm always excited to discuss new projects, innovative ideas, and technological challenges.
+                        </p>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-center space-x-4 group">
+                                <div class="w-16 h-16 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                                    <i class="fas fa-envelope text-xl text-black"></i>
+                                </div>
+                                <div>
+                                    <p class="text-cyan-400 font-mono text-sm">EMAIL_ADDRESS</p>
+                                    <p class="text-white font-semibold">yanesa.medina@cyber.dev</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center space-x-4 group">
+                                <div class="w-16 h-16 bg-gradient-to-br from-purple-400 to-pink-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                                    <i class="fab fa-linkedin text-xl text-black"></i>
+                                </div>
+                                <div>
+                                    <p class="text-purple-400 font-mono text-sm">LINKEDIN_PROFILE</p>
+                                    <p class="text-white font-semibold">linkedin.com/in/yanesa-medina</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center space-x-4 group">
+                                <div class="w-16 h-16 bg-gradient-to-br from-green-400 to-teal-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                                    <i class="fab fa-github text-xl text-black"></i>
+                                </div>
+                                <div>
+                                    <p class="text-green-400 font-mono text-sm">GITHUB_REPOSITORY</p>
+                                    <p class="text-white font-semibold">github.com/yanesa-medina</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="slide-in-right">
+                    <div class="tech-border p-8 rounded-2xl bg-gray-900 bg-opacity-80">
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="text-xl font-bold text-cyan-400 font-mono">CONTACT_FORM.exe</h3>
+                            <div class="flex space-x-2">
+                                <div class="w-3 h-3 bg-green-400 rounded-full"></div>
+                                <div class="w-3 h-3 bg-yellow-400 rounded-full"></div>
+                                <div class="w-3 h-3 bg-red-400 rounded-full"></div>
+                            </div>
+                        </div>
+                        
+                        <form onsubmit="handleContactSubmit(event)" class="space-y-6">
+                            <div>
+                                <label class="block text-cyan-400 text-sm font-mono mb-2">NAME_INPUT:</label>
+                                <input type="text" class="w-full px-4 py-3 bg-black border border-cyan-500 rounded-lg text-white focus:border-cyan-300 focus:outline-none transition-colors font-mono" placeholder="Enter your name..." required>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-cyan-400 text-sm font-mono mb-2">EMAIL_ADDRESS:</label>
+                                <input type="email" class="w-full px-4 py-3 bg-black border border-cyan-500 rounded-lg text-white focus:border-cyan-300 focus:outline-none transition-colors font-mono" placeholder="your.email@domain.com" required>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-cyan-400 text-sm font-mono mb-2">MESSAGE_SUBJECT:</label>
+                                <input type="text" class="w-full px-4 py-3 bg-black border border-cyan-500 rounded-lg text-white focus:border-cyan-300 focus:outline-none transition-colors font-mono" placeholder="Project collaboration..." required>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-cyan-400 text-sm font-mono mb-2">MESSAGE_BODY:</label>
+                                <textarea rows="4" class="w-full px-4 py-3 bg-black border border-cyan-500 rounded-lg text-white focus:border-cyan-300 focus:outline-none transition-colors resize-none font-mono" placeholder="Describe your project or inquiry..." required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="w-full cyber-button py-4 rounded-lg">
+                                <i class="fas fa-paper-plane mr-2"></i>TRANSMIT_MESSAGE
+                            </button>
+                            
+                            <p class="text-xs text-gray-500 text-center font-mono">
+                                <i class="fas fa-info-circle mr-1"></i>
+                                [DEMO_MODE] - Messages are simulated for demonstration
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-16 bg-black border-t border-cyan-500">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <div class="text-3xl font-bold mb-6">
+                    <span class="cyber-text glitch">&lt;YANESA.MEDINA/&gt;</span>
+                </div>
+                <p class="text-gray-400 mb-8 font-mono">
+                    <span class="text-cyan-400">//</span> Building the future, one commit at a time
+                </p>
+                <div class="flex justify-center space-x-6 mb-8">
+                    <a href="#" class="w-14 h-14 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-lg flex items-center justify-center hover:scale-110 transition-transform neon-glow">
+                        <i class="fab fa-github text-xl text-black"></i>
+                    </a>
+                    <a href="#" class="w-14 h-14 bg-gradient-to-br from-purple-400 to-pink-500 rounded-lg flex items-center justify-center hover:scale-110 transition-transform neon-glow">
+                        <i class="fab fa-linkedin text-xl text-black"></i>
+                    </a>
+                    <a href="#" class="w-14 h-14 bg-gradient-to-br from-red-400 to-orange-500 rounded-lg flex items-center justify-center hover:scale-110 transition-transform neon-glow">
+                        <i class="fab fa-youtube text-xl text-black"></i>
+                    </a>
+                    <a href="#" class="w-14 h-14 bg-gradient-to-br from-green-400 to-teal-500 rounded-lg flex items-center justify-center hover:scale-110 transition-transform neon-glow">
+                        <i class="fab fa-twitter text-xl text-black"></i>
+                    </a>
+                </div>
+                <div class="border-t border-gray-800 pt-8">
+                    <p class="text-gray-600 font-mono text-sm">
+                        <span class="text-cyan-400">&copy;</span> 2024 YANESA_MEDINA.DEV - ALL_RIGHTS_RESERVED
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Matrix Rain Effect
+        function createMatrixRain() {
+            const container = document.getElementById('matrix-rain');
+            const chars = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
+            
+            for (let i = 0; i < 50; i++) {
+                const char = document.createElement('div');
+                char.className = 'matrix-char';
+                char.textContent = chars[Math.floor(Math.random() * chars.length)];
+                char.style.left = Math.random() * 100 + 'vw';
+                char.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                char.style.animationDelay = Math.random() * 2 + 's';
+                container.appendChild(char);
+                
+                setTimeout(() => {
+                    char.remove();
+                }, 5000);
+            }
+        }
+
+        // Terminal Typing Effect
+        const terminalText = document.getElementById('terminal-text');
+        const commands = [
+            'Initializing neural networks...',
+            'Loading creative algorithms...',
+            'Compiling innovative solutions...',
+            'Ready for digital transformation.'
+        ];
+        let commandIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function typeCommand() {
+            const currentCommand = commands[commandIndex];
+            
+            if (isDeleting) {
+                terminalText.textContent = currentCommand.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                terminalText.textContent = currentCommand.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            if (!isDeleting && charIndex === currentCommand.length) {
+                setTimeout(() => isDeleting = true, 2000);
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                commandIndex = (commandIndex + 1) % commands.length;
+            }
+
+            setTimeout(typeCommand, isDeleting ? 50 : 100);
+        }
+
+        // Intersection Observer for Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                    
+                    // Animate skill progress bars
+                    const skillBars = entry.target.querySelectorAll('.skill-progress');
+                    skillBars.forEach(bar => {
+                        const width = bar.getAttribute('data-width');
+                        setTimeout(() => {
+                            bar.style.width = width + '%';
+                        }, 500);
+                    });
+                }
+            });
+        }, observerOptions);
+
+        // Smooth Scrolling
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Profile Photo Upload
+        function handleProfileUpload() {
+            const fileInput = document.getElementById('profile-upload');
+            const profileImage = document.getElementById('profile-image');
+            const profilePlaceholder = document.getElementById('profile-placeholder');
+            
+            fileInput.addEventListener('change', function(event) {
+                const file = event.target.files[0];
+                if (file) {
+                    // Validate file type
+                    if (!file.type.startsWith('image/')) {
+                        alert('Please select a valid image file.');
+                        return;
+                    }
+                    
+                    // Validate file size (max 5MB)
+                    if (file.size > 5 * 1024 * 1024) {
+                        alert('File size must be less than 5MB.');
+                        return;
+                    }
+                    
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        profileImage.src = e.target.result;
+                        profileImage.classList.remove('hidden');
+                        profilePlaceholder.classList.add('hidden');
+                        
+                        // Add upload success animation
+                        profileImage.style.opacity = '0';
+                        profileImage.style.transform = 'scale(0.8)';
+                        
+                        setTimeout(() => {
+                            profileImage.style.transition = 'all 0.5s ease';
+                            profileImage.style.opacity = '1';
+                            profileImage.style.transform = 'scale(1)';
+                        }, 100);
+                        
+                        // Show success message
+                        showNotification('PHOTO_UPLOADED_SUCCESSFULLY', 'success');
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+        }
+        
+        // Notification System
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.className = `fixed top-24 right-6 z-50 px-6 py-4 rounded-lg font-mono text-sm transform translate-x-full transition-transform duration-300`;
+            
+            if (type === 'success') {
+                notification.classList.add('bg-green-900', 'border', 'border-green-400', 'text-green-300');
+                notification.innerHTML = `<i class="fas fa-check-circle mr-2"></i>${message}`;
+            } else {
+                notification.classList.add('bg-cyan-900', 'border', 'border-cyan-400', 'text-cyan-300');
+                notification.innerHTML = `<i class="fas fa-info-circle mr-2"></i>${message}`;
+            }
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.transform = 'translateX(0)';
+            }, 100);
+            
+            setTimeout(() => {
+                notification.style.transform = 'translateX(100%)';
+                setTimeout(() => {
+                    notification.remove();
+                }, 300);
+            }, 3000);
+        }
+
+        // Contact Form
+        function handleContactSubmit(event) {
+            event.preventDefault();
+            
+            const form = event.target;
+            const button = form.querySelector('button[type="submit"]');
+            const originalText = button.innerHTML;
+            
+            button.innerHTML = '<i class="fas fa-check mr-2"></i>MESSAGE_TRANSMITTED';
+            button.disabled = true;
+            
+            setTimeout(() => {
+                button.innerHTML = originalText;
+                button.disabled = false;
+                form.reset();
+            }, 3000);
+        }
+
+        // Smooth Navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Initialize Everything
+        document.addEventListener('DOMContentLoaded', () => {
+            // Start matrix rain
+            setInterval(createMatrixRain, 200);
+            
+            // Start terminal typing
+            setTimeout(typeCommand, 1000);
+            
+            // Initialize profile upload
+            handleProfileUpload();
+            
+            // Observe all animated elements
+            document.querySelectorAll('.slide-in-left, .slide-in-right, .slide-in-up').forEach(el => {
+                observer.observe(el);
+            });
+            
+            // Initial hero animations
+            setTimeout(() => {
+                document.querySelectorAll('#home .slide-in-left, #home .slide-in-right, #home .slide-in-up').forEach(el => {
+                    el.classList.add('animate-in');
+                });
+            }, 500);
+        });
+
+        // Parallax Effect
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelector('.cyber-grid');
+            const speed = scrolled * 0.5;
+            parallax.style.transform = `translateY(${speed}px)`;
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9804c2c18774fecf',t:'MTc1ODA3MTgxMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
